@@ -21,6 +21,7 @@
     "styled-components": "^6.1.0"
   },
   "devDependencies": {
+    "@locator/babel-jsx": "^0.4.2",
     "eslint": "^8",
     "eslint-config-next": "13.5.6"
   }
