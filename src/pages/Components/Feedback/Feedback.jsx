@@ -1,8 +1,9 @@
 import { Box, Container, Grid, Rating, Typography } from "@mui/material";
 import React from "react";
-import Costumer1 from "../../Assets/Customer1.webp";
-import Costumer2 from "../../Assets/Customer2.webp";
-import Costumer3 from "../../Assets/Customer3.webp";
+import Image from "next/image";
+import Costumer1 from "../../../../public/Assets/Customer1.webp";
+import Costumer2 from "../../../../public/Assets/Customer2.webp";
+import Costumer3 from "../../../../public/Assets/Customer3.webp";
 
 const Feedback = () => {
   const Array = [
@@ -40,7 +41,7 @@ const Feedback = () => {
             sx={{
               fontSize: "44px",
               fontWeight: "700",
-              fontFamily: "Montserrat",
+              fontFamily: "Montserrat, sans-serif",
               letterSpacing: "-0.5px",
               color: "#383033",
             }}
@@ -52,7 +53,7 @@ const Feedback = () => {
             sx={{
               paddingTop: "1.5rem",
               fontSize: "18px",
-              fontFamily: "Montserrat",
+              fontFamily: "Montserrat, sans-serif",
               lineHeight: "180%",
             }}
           >
@@ -76,7 +77,7 @@ const Feedback = () => {
                       }}
                     >
                       <Box sx={{ display: "flex", justifyContent: "center" }}>
-                        <img src={item?.image} alt="" width={100} />
+                        <Image src={item?.image} alt="" width={100} />
                       </Box>
                       <Box
                         sx={{
@@ -104,7 +105,7 @@ const Feedback = () => {
                           sx={{
                             textAlign: "center",
                             fontSize: "15px",
-                            fontFamily: "Montserrat",
+                            fontFamily: "Montserrat, sans-serif",
                             lineHeight: "22px",
                           }}
                         >

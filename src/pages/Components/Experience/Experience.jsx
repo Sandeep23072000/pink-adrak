@@ -1,10 +1,11 @@
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import styles from "../../../styles/Experience.module.css";
-import Womenhome from "../../Assets/storywomen.webp";
-import Scalepng from "../../Assets/scale.png";
-import VerifyIcon from "../../Assets/vefificationhome.png";
-import Saveearth from "../../Assets/saveearth.png";
+import Womenhome from "../../../../public/Assets/storywomen.webp";
+import Scalepng from "../../../../public/Assets/scale.png";
+import VerifyIcon from "../../../../public/Assets/vefificationhome.png";
+import Saveearth from "../../../../public/Assets/saveearth.png";
+import Image from "next/image";
 
 const Experience = () => {
   return (
@@ -68,6 +69,7 @@ const Experience = () => {
                 color="secondary"
                 sx={{
                   fontSize: "20px",
+                  fontFamily:'Montserrat',
                   fontWeight: "600",
                   padding: "12px 40px",
                   textTransform: "none",
@@ -96,7 +98,7 @@ const Experience = () => {
             }}
           >
             <Box>
-              <img
+              <Image
                 src={Womenhome}
                 alt=""
                 className={styles.experience_homepage_first_img}

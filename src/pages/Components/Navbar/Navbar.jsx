@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -6,7 +7,7 @@ import Menu from "@mui/material/Menu";
 import { Box, Container } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
-import Navbarlogo from "../../Assets/Navlogo.webp";
+import Navbarlogo from "../../../../public/Assets/Navlogo.webp";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const Navbar = () => {
@@ -21,7 +22,7 @@ const Navbar = () => {
     <AppBar position="static" sx={{ backgroundColor: "#383033" }}>
       <Container>
         <Toolbar>
-          <img src={Navbarlogo} height={40} />
+          <Image src={Navbarlogo} height={40} />
           <Box
             sx={{
               flexGrow: 1,

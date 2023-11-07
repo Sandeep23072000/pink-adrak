@@ -1,10 +1,11 @@
 import { Box, Container, Typography, Grid, Button } from "@mui/material";
 import React from "react";
 import styles from "../../../styles/Delight.module.css";
-import Delighteveryday from "../../Assets/Delighteveryday.webp";
-import Delightsattava from "../../Assets/Delightsattava.webp";
-import Delightwhich from "../../Assets/Delightwhich.webp";
-import Delightcold from "../../Assets/Delightcold.webp";
+import Delighteveryday from "../../../../public/Assets/Delighteveryday.webp";
+import Delightsattava from "../../../../public/Assets/Delightsattava.webp";
+import Delightwhich from "../../../../public/Assets/Delightwhich.webp";
+import Delightcold from "../../../../public/Assets/Delightcold.webp";
+import Image from "next/image";
 
 const Delight = () => {
   const Array = [
@@ -131,7 +132,7 @@ const Delight = () => {
                     sx={{ paddingTop: "5rem !important" }}
                   >
                     <Box className={styles.delight_image_content}>
-                      <img src={item?.image} alt="" width={250} />
+                      <Image src={item?.image} alt="" width={250} />
                     </Box>
                     <Box className={styles.delight_text_content}>
                       <Typography

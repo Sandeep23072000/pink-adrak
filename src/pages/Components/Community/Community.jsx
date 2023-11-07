@@ -1,6 +1,7 @@
 import React from "react";
+import Image from "next/image";
 import { Box, Container, Typography } from "@mui/material";
-import Businesswomen from "../../Assets/Businesswomen.png";
+import Businesswomen from "../../../../public/Assets/Businesswomen.png";
 
 const Community = () => {
   return (
@@ -43,7 +44,7 @@ const Community = () => {
             alignItems: "center",
           }}
         >
-          <img
+          <Image
             src={Businesswomen}
             alt=""
             style={{ maxWidth: "50%" }}

@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
-import Chefwomen from "../../Assets/chefwomen.png";
+import Chefwomen from "../../../../public/Assets/Chefwomen.png";
+import Image from "next/image";
 
 const Hygienic = () => {
   return (
@@ -13,7 +14,7 @@ const Hygienic = () => {
               md={4}
               sx={{ display: "flex", justifyContent: "center", width: "100%" }}
             >
-              <img src={Chefwomen} alt="" width={200} />
+              <Image src={Chefwomen} alt="" width={200} />
             </Grid>
             <Grid item md={8}>
               <Box sx={{ paddingTop: "3rem" }}>

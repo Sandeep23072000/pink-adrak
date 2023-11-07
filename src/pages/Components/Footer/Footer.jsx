@@ -1,9 +1,10 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import Navbarlogo from "../../Assets/Navlogo.webp";
+import Navbarlogo from "../../../../public/Assets/Navlogo.webp";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -21,13 +22,13 @@ const Footer = () => {
           >
             <Grid item md={4}>
               <Box>
-                <img src={Navbarlogo} height={40} />
+                <Image src={Navbarlogo} height={40} />
               </Box>
               <Box sx={{ paddingTop: "2rem" }}>
                 <Typography
                   sx={{
                     fontSize: "18px",
-                    fontFamily: "Montserrat",
+                    fontFamily: "Montserrat, sans-serif",
                     lineHeight: "180%",
                     color: "white",
                   }}
@@ -52,22 +53,22 @@ const Footer = () => {
                 </Typography>
                 <Box sx={{ display: "block" }}>
                   <Typography
-                    sx={{ fontFamily: "Montserrat", paddingTop: "1.5rem" }}
+                    sx={{ fontFamily: "Montserrat, sans-serif", paddingTop: "1.5rem" }}
                   >
                     Everyday9
                   </Typography>
                   <Typography
-                    sx={{ fontFamily: "Montserrat", paddingTop: "1.5rem" }}
+                    sx={{ fontFamily: "Montserrat, sans-serif", paddingTop: "1.5rem" }}
                   >
                     Sattva
                   </Typography>
                   <Typography
-                    sx={{ fontFamily: "Montserrat", paddingTop: "1.5rem" }}
+                    sx={{ fontFamily: "Montserrat, sans-serif", paddingTop: "1.5rem" }}
                   >
                     Wichwich
                   </Typography>
                   <Typography
-                    sx={{ fontFamily: "Montserrat", paddingTop: "1.5rem" }}
+                    sx={{ fontFamily: "Montserrat, sans-serif", paddingTop: "1.5rem" }}
                   >
                     Coldplay
                   </Typography>
