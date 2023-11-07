@@ -22,7 +22,7 @@ const Footer = () => {
           >
             <Grid item md={4}>
               <Box>
-                <Image src={Navbarlogo} height={40} />
+                <Image draggable="false" src={Navbarlogo} height={40} />
               </Box>
               <Box sx={{ paddingTop: "2rem" }}>
                 <Typography

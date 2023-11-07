@@ -45,6 +45,7 @@ const Community = () => {
           }}
         >
           <Image
+            draggable="false"
             src={Businesswomen}
             alt=""
             style={{ maxWidth: "50%" }}

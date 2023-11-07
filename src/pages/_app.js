@@ -1,27 +1,18 @@
-import Community from './Components/Community/Community';
-import Delight from './Components/Delight/Delight';
-import Experience from './Components/Experience/Experience';
-import Feedback from './Components/Feedback/Feedback';
-import Footer from './Components/Footer/Footer';
-import Hygienic from './Components/Hygienic/Hygienic';
-import Navbar from './Components/Navbar/Navbar';
-import Story from './Components/Story/Story';
-import Sustainable from './Components/Sustainable/Sustainable';
+import "@/styles/globals.css";
+import Head from "next/head";
 
-function App() {
+export default function App({ Component, pageProps }) {
   return (
     <>
-    <Navbar />
-    <Experience />
-    <Story />
-    <Delight />
-    <Sustainable />
-    <Feedback />
-    <Hygienic />
-    <Community />
-    <Footer />
+      <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <Component {...pageProps} />
     </>
   );
 }
-
-export default App;

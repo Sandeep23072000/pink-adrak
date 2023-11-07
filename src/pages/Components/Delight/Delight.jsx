@@ -132,7 +132,7 @@ const Delight = () => {
                     sx={{ paddingTop: "5rem !important" }}
                   >
                     <Box className={styles.delight_image_content}>
-                      <Image src={item?.image} alt="" width={250} />
+                      <Image draggable="false" src={item?.image} alt="" width={250} />
                     </Box>
                     <Box className={styles.delight_text_content}>
                       <Typography

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import Practisewomen from "../../../../public/Assets/womenpractice.svg";
 
@@ -54,7 +55,7 @@ const Sustainable = () => {
                 width: "100%",
               }}
             >
-              <img src={Practisewomen} alt="" style={{ maxWidth: "100%" }} />
+              <Image draggable="false" src={Practisewomen} alt="" style={{ maxWidth: "100%" }} />
             </Grid>
           </Grid>
         </Container>

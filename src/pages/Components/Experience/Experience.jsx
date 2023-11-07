@@ -69,7 +69,7 @@ const Experience = () => {
                 color="secondary"
                 sx={{
                   fontSize: "20px",
-                  fontFamily:'Montserrat',
+                  fontFamily: "Montserrat",
                   fontWeight: "600",
                   padding: "12px 40px",
                   textTransform: "none",
@@ -99,6 +99,7 @@ const Experience = () => {
           >
             <Box>
               <Image
+                draggable="false"
                 src={Womenhome}
                 alt=""
                 className={styles.experience_homepage_first_img}
@@ -116,7 +117,7 @@ const Experience = () => {
           >
             <Grid item xs={12} sm={6} md={4}>
               <Box>
-                <img src={Scalepng} alt="" width={80} />
+                <Image draggable="false" src={Scalepng} alt="" width={80} />
               </Box>
               <Typography
                 sx={{
@@ -142,7 +143,7 @@ const Experience = () => {
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
               <Box>
-                <img src={VerifyIcon} alt="" width={80} />
+                <Image draggable="false" src={VerifyIcon} alt="" width={80} />
               </Box>
               <Typography
                 sx={{
@@ -167,7 +168,7 @@ const Experience = () => {
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
               <Box>
-                <img src={Saveearth} alt="" width={80} />
+                <Image draggable="false" src={Saveearth} alt="" width={80} />
               </Box>
               <Typography
                 sx={{

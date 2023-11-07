@@ -11,6 +11,7 @@ const Story = () => {
           <Grid container sx={{ paddingTop: "3rem" }}>
             <Grid item md={4} sx={{display:'flex', justifyContent:'center', width:'100%'}}>
               <Image
+                draggable="false"
                 src={Storywomen}
                 alt=""
                 style={{ maxWidth: "100%", height: "100%" }}

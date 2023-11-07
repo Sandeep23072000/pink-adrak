@@ -22,7 +22,7 @@ const Navbar = () => {
     <AppBar position="static" sx={{ backgroundColor: "#383033" }}>
       <Container>
         <Toolbar>
-          <Image src={Navbarlogo} height={40} />
+          <Image src={Navbarlogo} draggable="false" height={40} />
           <Box
             sx={{
               flexGrow: 1,

@@ -14,7 +14,7 @@ const Hygienic = () => {
               md={4}
               sx={{ display: "flex", justifyContent: "center", width: "100%" }}
             >
-              <Image src={Chefwomen} alt="" width={200} />
+              <Image draggable="false" src={Chefwomen} alt="" width={200} />
             </Grid>
             <Grid item md={8}>
               <Box sx={{ paddingTop: "3rem" }}>

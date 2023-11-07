@@ -77,7 +77,7 @@ const Feedback = () => {
                       }}
                     >
                       <Box sx={{ display: "flex", justifyContent: "center" }}>
-                        <Image src={item?.image} alt="" width={100} />
+                        <Image draggable="false" src={item?.image} alt="" width={100} />
                       </Box>
                       <Box
                         sx={{
