@@ -40,7 +40,7 @@
   background-color: #383033 !important;
   padding: 16px !important;
   font-size: 18px !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
 }
 @media screen and (max-width: 900px) {
   .delight_button_content {
