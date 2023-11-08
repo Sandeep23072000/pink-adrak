@@ -8,6 +8,26 @@ import Saveearth from "../../../../public/Assets/saveearth.png";
 import Image from "next/image";
 
 const Experience = () => {
+  const Array = [
+    {
+      id: 1,
+      image: Scalepng,
+      name: "Incubation",
+      text: "Proudly incubating unique brands with distinct identities to reshape the culinary world.",
+    },
+    {
+      id: 2,
+      image: VerifyIcon,
+      name: "Sustained-innovations",
+      text: "Long-lasting innovations that benefit our ecosystem.",
+    },
+    {
+      id: 3,
+      image: Saveearth,
+      name: "Purposeful journey",
+      text: "We believe in spreading kindness through our CSR activities and giving back to our community.",
+    },
+  ];
   return (
     <>
       <Container sx={{ marginBlock: "4rem" }}>
@@ -115,83 +135,40 @@ const Experience = () => {
             columns={{ xs: 4, sm: 12, md: 12 }}
             spacing={{ xs: 3, sm: 6, md: 6 }}
           >
-            <Grid item xs={12} sm={6} md={4}>
-              <Box>
-                <Image draggable="false" src={Scalepng} alt="" width={80} />
-              </Box>
-              <Typography
-                sx={{
-                  paddingTop: "10px",
-                  fontSize: "20px",
-                  fontWeight: "600",
-                  fontFamily: "Montserrat",
-                }}
-              >
-                Incubation
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                  fontFamily: "Montserrat",
-                  lineHeight: "180%",
-                  paddingTop: "10px",
-                }}
-              >
-                Proudly incubating unique brands with distinct identities to
-                reshape the culinary world.
-              </Typography>
-            </Grid>
-            <Grid item xs={12} sm={6} md={4}>
-              <Box>
-                <Image draggable="false" src={VerifyIcon} alt="" width={80} />
-              </Box>
-              <Typography
-                sx={{
-                  paddingTop: "10px",
-                  fontSize: "20px",
-                  fontWeight: "600",
-                  fontFamily: "Montserrat",
-                }}
-              >
-                Sustained-innovations
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                  fontFamily: "Montserrat",
-                  lineHeight: "180%",
-                  paddingTop: "10px",
-                }}
-              >
-                Long-lasting innovations that benefit our ecosystem.
-              </Typography>
-            </Grid>
-            <Grid item xs={12} sm={6} md={4}>
-              <Box>
-                <Image draggable="false" src={Saveearth} alt="" width={80} />
-              </Box>
-              <Typography
-                sx={{
-                  paddingTop: "10px",
-                  fontSize: "20px",
-                  fontWeight: "600",
-                  fontFamily: "Montserrat",
-                }}
-              >
-                Purposeful journey
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                  fontFamily: "Montserrat",
-                  lineHeight: "180%",
-                  paddingTop: "10px",
-                }}
-              >
-                We believe in spreading kindness through our CSR activities and
-                giving back to our community.
-              </Typography>
-            </Grid>
+            {Array.map((item, i) => {
+              return (
+                <Grid item xs={12} sm={6} md={4}>
+                  <Box>
+                    <Image
+                      draggable="false"
+                      src={item?.image}
+                      alt=""
+                      width={80}
+                    />
+                  </Box>
+                  <Typography
+                    sx={{
+                      paddingTop: "10px",
+                      fontSize: "20px",
+                      fontWeight: "600",
+                      fontFamily: "Montserrat",
+                    }}
+                  >
+                    {item?.name}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "18px",
+                      fontFamily: "Montserrat",
+                      lineHeight: "180%",
+                      paddingTop: "10px",
+                    }}
+                  >
+                    {item?.text}
+                  </Typography>
+                </Grid>
+              );
+            })}
           </Grid>
         </Box>
       </Container>
