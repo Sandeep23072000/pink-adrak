@@ -13,7 +13,6 @@ const Feedback = () => {
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URL}/feedback/`)
       .then((response) => {
-        // console.log(response?.data?.data);
         setData(response?.data?.data);
       })
       .catch((error) => {
@@ -71,8 +70,8 @@ const Feedback = () => {
                           src={item?.image_detail}
                           alt=""
                           width={100}
-                          height={100} // Set a fixed height
-                          layout="fixed" // Use layout prop to control scaling
+                          height={100}
+                          layout="fixed"
                         />
                       </Box>
                       <Box

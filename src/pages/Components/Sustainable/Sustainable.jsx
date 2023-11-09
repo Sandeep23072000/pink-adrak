@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Image from "next/image";
 import { Box, Container, Grid, Typography } from "@mui/material";
-import Practisewomen from "../../../../public/Assets/womenpractice.svg";
 
 const Sustainable = () => {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/initiatives/`)
+      .then((response) => {
+        setData(response?.data?.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+  console.log(data, "iiiiiiiiiiiiiiiiiii");
+
   return (
     <>
       <Box sx={{ backgroundColor: "#383033" }}>
@@ -21,7 +35,7 @@ const Sustainable = () => {
                     color: "white",
                   }}
                 >
-                  Sustainable practices & initiatives
+                  {data?.name}
                 </Typography>
                 <Typography
                   sx={{
@@ -32,16 +46,7 @@ const Sustainable = () => {
                     color: "white",
                   }}
                 >
-                  Our innovation is all about making your experience better.
-                  From our dedicated team, Troy, who crafts authentic and
-                  outstanding recipes, to our chefs who blend culinary expertise
-                  with technology, we're committed to bringing you the best.
-                  <br /> But it's not just about us – it's about you and the
-                  community we cherish. By embracing processes that enhance
-                  quality, we ensure that every bite you take is a delight. And
-                  as we strive for excellence, we also actively participate in
-                  community initiatives, because sustainable success means
-                  sharing joy with everyone.
+                  {data?.description}
                 </Typography>
               </Box>
             </Grid>
@@ -55,7 +60,12 @@ const Sustainable = () => {
                 width: "100%",
               }}
             >
-              <Image draggable="false" src={Practisewomen} alt="" style={{ maxWidth: "100%" }} />
+              <Image
+                draggable="false"
+                src={data?.image_detail}
+                alt=""
+                style={{ maxWidth: "100%" }}
+              />
             </Grid>
           </Grid>
         </Container>

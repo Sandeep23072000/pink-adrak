@@ -4,6 +4,19 @@ import Storywomen from "../../../../public/Assets/storywomen.webp";
 import Image from "next/image";
 
 const Story = () => {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/story/`)
+      .then((response) => {
+        setData(response?.data?.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+  console.log(data, "dddddddddddddddddddd");
   return (
     <>
       <Box sx={{ backgroundColor: "#383033" }}>
