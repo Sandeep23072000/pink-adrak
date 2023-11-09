@@ -55,8 +55,8 @@ const Experience = () => {
               justifyContent: "center",
             }}
           >
-            {Object.entries(data).map(([key, value], i) => (
-              <Box sx={{ display: "block" }} key={i}>
+            {/* {Object.entries(data).map(([key, value], i) => ( */}
+              <Box sx={{ display: "block" }}>
                 <Typography
                   variant="h1"
                   sx={{
@@ -93,7 +93,7 @@ const Experience = () => {
                     },
                   }}
                 >
-                  {data?.heading}
+                  {data?.desc}
                 </Typography>
                 <Button
                   variant="contained"
@@ -117,7 +117,7 @@ const Experience = () => {
                   Explore Pink Adrak
                 </Button>
               </Box>
-            ))}
+            {/* ))} */}
           </Grid>
           <Grid
             item
