@@ -1,5 +1,6 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Storywomen from "../../../../public/Assets/storywomen.webp";
 import Image from "next/image";
 
@@ -20,14 +21,18 @@ const Story = () => {
   return (
     <>
       <Box sx={{ backgroundColor: "#383033" }}>
-        <Container>
+        <Container sx={{paddingBottom:"1rem"}}>
           <Grid container sx={{ paddingTop: "3rem" }}>
-            <Grid item md={4} sx={{display:'flex', justifyContent:'center', width:'100%'}}>
-              <Image
+            <Grid
+              item
+              md={4}
+              sx={{ display: "flex", justifyContent: "center", width: "100%" }}
+            >
+              <img
                 draggable="false"
-                src={Storywomen}
+                src={data?.image_detail}
                 alt=""
-                style={{ maxWidth: "100%", height: "100%" }}
+                style={{ maxWidth: "100%", height: "100%", marginRight:'30px' }}
               />
             </Grid>
             <Grid item md={8}>
@@ -52,12 +57,7 @@ const Story = () => {
                     color: "white",
                   }}
                 >
-                  Creating a delightful food experience by operating as an
-                  incubation hub, that nurtures brands with distinct identities.
-                  Our sustained innovation benefits our ecosystem, while the
-                  Pink Adrak Foundation spreads kindness through impactful
-                  community endeavours, completing the circle of our purposeful
-                  journey.
+                  {data?.desc}
                 </Typography>
               </Box>
             </Grid>

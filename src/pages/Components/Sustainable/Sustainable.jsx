@@ -64,6 +64,8 @@ const Sustainable = () => {
                 draggable="false"
                 src={data?.image_detail}
                 alt=""
+                width={400}
+                height={400}
                 style={{ maxWidth: "100%" }}
               />
             </Grid>

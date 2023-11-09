@@ -2,14 +2,12 @@ import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import styles from "../../../styles/Experience.module.css";
 import Womenhome from "../../../../public/Assets/storywomen.webp";
-import Scalepng from "../../../../public/Assets/scale.png";
-import VerifyIcon from "../../../../public/Assets/vefificationhome.png";
-import Saveearth from "../../../../public/Assets/saveearth.png";
 import Image from "next/image";
 import axios from "axios";
 
 const Experience = () => {
   const [data, setData] = useState({});
+  const [innovations, setInnovations] = useState([]);
 
   useEffect(() => {
     axios
@@ -22,26 +20,18 @@ const Experience = () => {
       });
   }, []);
   console.log(data, "dddddddddddddddddddd");
-  const Array = [
-    {
-      id: 1,
-      image: Scalepng,
-      name: "Incubation",
-      text: "Proudly incubating unique brands with distinct identities to reshape the culinary world.",
-    },
-    {
-      id: 2,
-      image: VerifyIcon,
-      name: "Sustained-innovations",
-      text: "Long-lasting innovations that benefit our ecosystem.",
-    },
-    {
-      id: 3,
-      image: Saveearth,
-      name: "Purposeful journey",
-      text: "We believe in spreading kindness through our CSR activities and giving back to our community.",
-    },
-  ];
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/innovations/`)
+      .then((response) => {
+        setInnovations(response?.data?.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+  console.log(innovations, "wejawlerhaewrfuadshfad");
   return (
     <>
       <Container sx={{ marginBlock: "4rem" }}>
@@ -78,7 +68,7 @@ const Experience = () => {
                 }}
               >
                 {data?.heading}{" "}
-                <span style={{ color: "#e44b99" }}>{data?.title}</span>
+                {/* <span style={{ color: "#e44b99" }}>{data?.title}</span> */}
               </Typography>
               <Typography
                 variant="h5"
@@ -92,7 +82,7 @@ const Experience = () => {
                   },
                 }}
               >
-                {data?.desc}
+                {data?.title}
               </Typography>
               <Button
                 variant="contained"
@@ -145,13 +135,13 @@ const Experience = () => {
             columns={{ xs: 4, sm: 12, md: 12 }}
             spacing={{ xs: 3, sm: 6, md: 6 }}
           >
-            {Array.map((item, i) => {
+            {innovations.map((item, i) => {
               return (
                 <Grid item xs={12} sm={6} md={4} key={i}>
                   <Box>
-                    <Image
+                    <img
                       draggable="false"
-                      src={item?.image}
+                      src={item?.image_detail}
                       alt=""
                       width={80}
                     />
@@ -174,7 +164,7 @@ const Experience = () => {
                       paddingTop: "10px",
                     }}
                   >
-                    {item?.text}
+                    {item?.description}
                   </Typography>
                 </Grid>
               );

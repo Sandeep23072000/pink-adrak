@@ -2,9 +2,6 @@ import { Box, Container, Grid, Rating, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
-import Costumer1 from "../../../../public/Assets/Customer1.webp";
-import Costumer2 from "../../../../public/Assets/Customer2.webp";
-import Costumer3 from "../../../../public/Assets/Customer3.webp";
 
 const Feedback = () => {
   const [data, setData] = useState([]);
@@ -119,10 +116,10 @@ const Feedback = () => {
                         }}
                       >
                         <Typography variant="h5" sx={{ fontWeight: "600" }}>
-                          {item?.star}
+                          {item?.rating}
                           <span style={{ fontSize: "16px" }}>/5.0 rating</span>
                         </Typography>
-                        <Rating defaultValue={item?.starvalue} />
+                        <Rating defaultValue={item?.rating} />
                       </Box>
                     </Box>
                   </Grid>

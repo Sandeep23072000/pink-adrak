@@ -1,35 +1,23 @@
 import { Box, Container, Typography, Grid, Button } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import styles from "../../../styles/Delight.module.css";
-import Delighteveryday from "../../../../public/Assets/Delighteveryday.webp";
-import Delightsattava from "../../../../public/Assets/Delightsattava.webp";
-import Delightwhich from "../../../../public/Assets/Delightwhich.webp";
-import Delightcold from "../../../../public/Assets/Delightcold.webp";
 import Image from "next/image";
 
 const Delight = () => {
-  const Array = [
-    {
-      id: 1,
-      image: Delighteveryday,
-      text: 'We believe that "good food begins with good intentions." Meals are crafted with hand-picked ingredients and ethical practices to share the warmth of clean, homely food.',
-    },
-    {
-      id: 2,
-      image: Delightsattava,
-      text: "Wholesome is awesome! Sattva, where with each bite, you get to experience purity wrapped in goodness that fuels you in the most nourishing way possible. Food so good. It loves you right back! ",
-    },
-    {
-      id: 3,
-      image: Delightwhich,
-      text: "Knock knock. Who’s there? Wich. Wich who? Wichwich. A wide selection of handcrafted vegetarian rolls and sandwiches! Enjoy a world of savour where each bite brings a smile.",
-    },
-    {
-      id: 4,
-      image: Delightcold,
-      text: "Ever wish your drinks could groove? Coldplay–a remix of flavours to keep your rhythm going. Not just a beverage but a whole vibe.",
-    },
-  ];
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/brand/`)
+      .then((response) => {
+        setData(response?.data?.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+  console.log(data, "fffffffffffffffff");
 
   return (
     <>
@@ -122,7 +110,7 @@ const Delight = () => {
         <Container>
           <Box sx={{ flexGrow: 1, paddingBlock: "5rem" }}>
             <Grid container columns={12} spacing={2}>
-              {Array.map((item, i) => {
+              {data.map((item, i) => {
                 return (
                   <Grid key={i}
                     item
@@ -132,7 +120,7 @@ const Delight = () => {
                     sx={{ paddingTop: "5rem !important" }}
                   >
                     <Box className={styles.delight_image_content}>
-                      <Image draggable="false" src={item?.image} alt="" width={250} />
+                      <img draggable="false" src={item?.logo} alt="" width={250} />
                     </Box>
                     <Box className={styles.delight_text_content}>
                       <Typography
@@ -143,7 +131,7 @@ const Delight = () => {
                           lineHeight: "160%",
                         }}
                       >
-                        {item?.text}
+                        {item?.description}
                       </Typography>
                     </Box>
                     <Button
