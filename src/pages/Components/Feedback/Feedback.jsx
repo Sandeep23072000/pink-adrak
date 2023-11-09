@@ -1,37 +1,26 @@
 import { Box, Container, Grid, Rating, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Image from "next/image";
 import Costumer1 from "../../../../public/Assets/Customer1.webp";
 import Costumer2 from "../../../../public/Assets/Customer2.webp";
 import Costumer3 from "../../../../public/Assets/Customer3.webp";
 
 const Feedback = () => {
-  const Array = [
-    {
-      id: 1,
-      image: Costumer1,
-      name: "Sameena Shad",
-      text: "Pink Adrak is my go-to place for an amazing food experience. The diverse menu options from Everyday9, Sattva, Coldplay, and Whichwich never cease to impress.",
-      star: "4.0",
-      starvalue: "4",
-    },
-    {
-      id: 2,
-      image: Costumer2,
-      name: "Saksham Chauhan",
-      text: "It is a culinary haven! The attention to detail is remarkable. I always leave with a satisfied palate and a smile.",
-      star: "3.0",
-      starvalue: "3",
-    },
-    {
-      id: 3,
-      image: Costumer3,
-      name: "Pallavi Guram",
-      text: "As a corporate employee, Pink Adrak's lunch options have been a delicious delight.",
-      star: "4.0",
-      starvalue: "4",
-    },
-  ];
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/feedback/`)
+      .then((response) => {
+        // console.log(response?.data?.data);
+        setData(response?.data?.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+  console.log(data, "fffffffffffffffff");
   return (
     <>
       <Container>
@@ -65,7 +54,7 @@ const Feedback = () => {
         <Container>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container columns={12} spacing={4}>
-              {Array.map((item, i) => {
+              {data.map((item, i) => {
                 return (
                   <Grid item sm={12} md={6} lg={4} key={i}>
                     <Box
@@ -79,9 +68,11 @@ const Feedback = () => {
                       <Box sx={{ display: "flex", justifyContent: "center" }}>
                         <Image
                           draggable="false"
-                          src={item?.image}
+                          src={item?.image_detail}
                           alt=""
                           width={100}
+                          height={100} // Set a fixed height
+                          layout="fixed" // Use layout prop to control scaling
                         />
                       </Box>
                       <Box

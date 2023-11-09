@@ -1,13 +1,27 @@
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../../styles/Experience.module.css";
 import Womenhome from "../../../../public/Assets/storywomen.webp";
 import Scalepng from "../../../../public/Assets/scale.png";
 import VerifyIcon from "../../../../public/Assets/vefificationhome.png";
 import Saveearth from "../../../../public/Assets/saveearth.png";
 import Image from "next/image";
+import axios from "axios";
 
 const Experience = () => {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/story/`)
+      .then((response) => {
+        setData(response?.data?.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+  console.log(data, "dddddddddddddddddddd");
   const Array = [
     {
       id: 1,
@@ -41,71 +55,69 @@ const Experience = () => {
               justifyContent: "center",
             }}
           >
-            <Box sx={{ display: "block" }}>
-              <Typography
-                variant="h1"
-                sx={{
-                  fontWeight: "700",
-                  fontFamily: "Montserrat",
-                  letterSpacing: "-0.5px",
-                  color: "#383033",
-                  marginTop: "1rem",
-                  fontSize: "64px",
-                  "@media (max-width: 900px)": {
-                    marginTop: "0",
-                    fontSize: "49px",
-                  },
-                  "@media (max-width: 768px)": {
-                    fontSize: "42px",
-                  },
-                  "@media (max-width: 567px)": {
-                    fontSize: "38px",
-                  },
-                }}
-              >
-                Creating a delightful{" "}
-                <span style={{ color: "#e44b99" }}>food experience.</span>
-              </Typography>
-              <Typography
-                variant="h5"
-                sx={{
-                  paddingTop: "1.7rem",
-                  fontSize: "18px",
-                  fontFamily: "Montserrat",
-                  lineHeight: "180%",
-                  "@media (max-width: 900px)": {
-                    paddingTop: "1rem",
-                  },
-                }}
-              >
-                Food is an experience, and we are here to make it delightful. We
-                create this delight by standardising the food experience in an
-                impeccable way. Our focus is to provide options that are
-                specially curated for you, by handpicking the best from the
-                rest.
-              </Typography>
-              <Button
-                variant="contained"
-                color="secondary"
-                sx={{
-                  fontSize: "20px",
-                  fontFamily: "Montserrat",
-                  fontWeight: "600",
-                  padding: "12px 40px",
-                  textTransform: "none",
-                  backgroundColor: "#e44b99",
-                  marginTop: "2.8rem",
-                  "@media (max-width: 900px)": {
-                    marginTop: "0.5rem",
-                  },
-                  "@media (max-width: 400px)": {
-                    fontSize: "14px",
-                  },
-                }}
-              >
-                Explore Pink Adrak
-              </Button>
-            </Box>
+            {Object.entries(data).map(([key, value], i) => (
+              <Box sx={{ display: "block" }} key={i}>
+                <Typography
+                  variant="h1"
+                  sx={{
+                    fontWeight: "700",
+                    fontFamily: "Montserrat",
+                    letterSpacing: "-0.5px",
+                    color: "#383033",
+                    marginTop: "1rem",
+                    fontSize: "64px",
+                    "@media (max-width: 900px)": {
+                      marginTop: "0",
+                      fontSize: "49px",
+                    },
+                    "@media (max-width: 768px)": {
+                      fontSize: "42px",
+                    },
+                    "@media (max-width: 567px)": {
+                      fontSize: "38px",
+                    },
+                  }}
+                >
+                  {data?.heading}{" "}
+                  <span style={{ color: "#e44b99" }}>{data?.title}</span>
+                </Typography>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    paddingTop: "1.7rem",
+                    fontSize: "18px",
+                    fontFamily: "Montserrat",
+                    lineHeight: "180%",
+                    "@media (max-width: 900px)": {
+                      paddingTop: "1rem",
+                    },
+                  }}
+                >
+                  {data?.heading}
+                </Typography>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  sx={{
+                    fontSize: "20px",
+                    fontFamily: "Montserrat",
+                    fontWeight: "600",
+                    padding: "12px 40px",
+                    textTransform: "none",
+                    backgroundColor: "#e44b99",
+                    marginTop: "2.8rem",
+                    "@media (max-width: 900px)": {
+                      marginTop: "0.5rem",
+                    },
+                    "@media (max-width: 400px)": {
+                      fontSize: "14px",
+                    },
+                  }}
+                >
+                  Explore Pink Adrak
+                </Button>
+              </Box>
+            ))}
           </Grid>
           <Grid
             item
@@ -137,7 +149,7 @@ const Experience = () => {
           >
             {Array.map((item, i) => {
               return (
-                <Grid item xs={12} sm={6} md={4}>
+                <Grid item xs={12} sm={6} md={4} key={i}>
                   <Box>
                     <Image
                       draggable="false"

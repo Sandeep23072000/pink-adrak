@@ -124,7 +124,7 @@ const Delight = () => {
             <Grid container columns={12} spacing={2}>
               {Array.map((item, i) => {
                 return (
-                  <Grid
+                  <Grid key={i}
                     item
                     sm={12}
                     md={6}

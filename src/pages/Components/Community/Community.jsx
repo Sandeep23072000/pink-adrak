@@ -8,7 +8,6 @@ import Post3 from "../../../../public/Assets/insta-post-3.jpeg";
 import Post4 from "../../../../public/Assets/insta-post-4.jpeg";
 import Post5 from "../../../../public/Assets/insta-post-5.png";
 import Post6 from "../../../../public/Assets/insta-post-6.jpeg";
-import FavoriteBorderSharpIcon from "@mui/icons-material/FavoriteBorderSharp";
 
 const postImages = [Post1, Post2, Post3, Post4, Post5, Post6];
 
@@ -66,7 +65,7 @@ const Community = () => {
             draggable="false"
             src={Businesswomen}
             alt=""
-            style={{ maxWidth: "50%" }}
+            style={{ maxHeight: "100%", maxWidth: "50%" }}
           />
         </Box>
       </Container>
