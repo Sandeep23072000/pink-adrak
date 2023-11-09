@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Grid, IconButton, Typography } from "@mui/material";
 import Businesswomen from "../../../../public/Assets/Businesswomen.png";
+import Post1 from "../../../../public/Assets/insta-post-1.jpeg";
+import Post2 from "../../../../public/Assets/insta-post-2.png";
+import Post3 from "../../../../public/Assets/insta-post-3.jpeg";
+import Post4 from "../../../../public/Assets/insta-post-4.jpeg";
+import Post5 from "../../../../public/Assets/insta-post-5.png";
+import Post6 from "../../../../public/Assets/insta-post-6.jpeg";
+import FavoriteBorderSharpIcon from "@mui/icons-material/FavoriteBorderSharp";
+
+const postImages = [Post1, Post2, Post3, Post4, Post5, Post6];
 
 const Community = () => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const handleMouseEnter = (index) => {
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+  };
   return (
     <>
       <Container>
@@ -49,11 +67,10 @@ const Community = () => {
             src={Businesswomen}
             alt=""
             style={{ maxWidth: "50%" }}
-            
           />
         </Box>
       </Container>
-      <Box height={700} sx={{ backgroundColor: "#edbcc45e" }}>
+      <Box sx={{ backgroundColor: "#edbcc45e" }}>
         <Box
           sx={{
             paddingBlock: "2rem",
@@ -75,6 +92,29 @@ const Community = () => {
             <span style={{ color: "#e44b99" }}> on instagram</span>
           </Typography>
         </Box>
+        <Container>
+          <Box sx={{ paddingBlock: "6rem" }}>
+            <Grid container spacing={2}>
+              {postImages.map((post, index) => (
+                <Grid item key={index} xs={12} sm={4}>
+                  <Box
+                    sx={{ overflow: "hidden", borderRadius: "9px" }}
+                    onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <Image
+                      src={post}
+                      alt={`Post ${index + 1}`}
+                      width="100%"
+                      height={370}
+                      className="community_images"
+                    />
+                  </Box>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+        </Container>
       </Box>
     </>
   );
